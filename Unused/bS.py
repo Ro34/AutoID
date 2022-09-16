@@ -1,0 +1,12 @@
+import imp
+import requests
+import bs4
+from bs4 import BeautifulSoup
+headers={
+'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+'Referer':'https://cvat.org/',
+'Cookie':'AMCVS_AD2A1C8B53308E600A490D4D@AdobeOrg=1; s_cc=true; aam_uuid=06571796179623787011408056808748457922; OptanonAlertBoxClosed=2022-08-02T09:45:55.847Z; messages=.eJyLjlaKj88qzs-Lz00tLk5MT1XSMdAxMtBRcs7PS8ssyk0syczPU0jVzU3MzFEoTs0rUSjJVzA2MTczsjQ1sHAoLNRLzs_VU4rVwWqOqY5SZH6pQkZiWapCMsTA1BRs2mMB5zArcw:1oIoVT:xO1XMU5JUbFwLUq1AbG-n6aFq-aljpwaIQqipiCD-zY; AMCV_AD2A1C8B53308E600A490D4D@AdobeOrg=1585540135|MCIDTS|19207|MCMID|06549324894959999561405792641006088155|MCAAMLH-1660120348|11|MCAAMB-1660120348|6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y|MCOPTOUT-1659522748s|NONE|MCSYNCSOP|411-19214|vVersion|4.4.0; _cs_mk=0.7064908254452191_1659519167972; wap_new_session=1; kndctr_AD2A1C8B53308E600A490D4D_AdobeOrg_cluster=sgp3; kndctr_AD2A1C8B53308E600A490D4D_AdobeOrg_identity=CiYwNjU0OTMyNDg5NDk1OTk5OTU2MTQwNTc5MjY0MTAwNjA4ODE1NVIPCJK2yu-lMBgBKgRTR1Az8AG49emYpjA=; utag_main=v_id:01825de87f890012032ca311003d0507c001107400bd0$_sn:6$_se:12$_ss:0$_st:1659521888255$wa_ecid:06549324894959999561405792641006088155$ses_id:1659519167714;exp-session$_pn:6;exp-session; OptanonConsent=isIABGlobal=false&datestamp=Wed+Aug+03+2022+17:48:08+GMT+0800+(中国标准时间)&version=6.30.0&hosts=&consentId=9f4ebfcb-197c-43f4-a8b5-769874a41927&interactionCount=20&landingPath=NotLandingPage&groups=C0001:1,C0003:1,C0004:1,C0002:1&AwaitingReconsent=false&geolocation=US;; adcloud={"_les_v":"y,cvat.org,1659521895"}; s_sq=intlcrpglobal=%26c.%26a.%26activitymap.%26page%3Dhttps%253A%252F%252Fcvat.org%252Fauth%252Flogin%252F%26link%3DSign%2520in%26region%3Droot%26pageIDType%3D1%26.activitymap%26.a%26.c%26pid%3D%252Fauth%252Flogin%252F%26pidt%3D1%26oid%3Dfunctioncn%2528%2529%257B%257D%26oidt%3D2%26ot%3DSUBMIT; csrftoken=gene8lWyXJUIGxS5suu9yx5LV1DJJjh0hTfCKp6ktXznuRRNtm1OKCurOIvySpDl; sessionid=ko43bxplsqqd12dus3xrk64th77p1yoc'
+}
+res=requests.get("https://www.zhihu.com/search?type=content&q=java",headers=headers)
+soup=BeautifulSoup(res.text,'html.parser')
+n=soup.select(".list")[0].select(".item")
